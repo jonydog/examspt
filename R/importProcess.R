@@ -3,7 +3,7 @@
 ##
 library("RODBC")
 library(openxlsx)
-baseDir <- "~/Desktop/data_xlsx/"
+baseDir <- "~/examspt/data_xlsx/"
 years <- 2010:2017
 conn <- RODBC::odbcConnect(dsn = "exams_db")
 
@@ -41,18 +41,9 @@ importExams(conn,baseDir,years)
 ##  percentage of ileterate population 
 importMunicipalityGenericData(
   conn=conn,
-  filename = "~/Desktop/data_xlsx/pordata_varios/population/pordata_analfabetismo.xlsx",
+  filename = "pordata_varios/population/pordata_analfabetismo.xlsx",
   tableName = "pordata_ileteracy",
   dataCol = "percent_analfabeta",
-  concelhoCol = "codigo_concelho"
-)
-
-##  absolute value of population
-importMunicipalityGenericData(
-  conn=conn,
-  filename = "~/Desktop/data_xlsx/pordata_varios/population/pordata_analfabetismo.xlsx",
-  tableName = "pordata_population",
-  dataCol = "pop_total",
   concelhoCol = "codigo_concelho"
 )
 
